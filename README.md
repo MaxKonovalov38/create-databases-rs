@@ -2,8 +2,14 @@
 Пример реализации крошечной ключ-значение базы данных.
 
 EXAMPLE:
-	cargo run -- <key> <value>
+```bash
+	cargo run -- <parametr> [key] [value]
+```
+PARAMETR:
+* select
+* insert
+* update
+* delete
 
 TODO:
--- Если аргументов нет, то прописать явный Result;
--- Error std::fs::write прописать детально;
+- Реализовать логику параметров.
