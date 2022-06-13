@@ -5,3 +5,4 @@ kv.db
 
 # Rust
 /target
+Cargo.lock
