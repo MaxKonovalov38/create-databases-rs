@@ -1,53 +1,40 @@
-use std::collections::HashMap;
+use std::{fs::File, io};
+use std::io::Write;
+use datetime::LocalDate;
+use datetime::convenience::Today;
 
-#[derive(Debug)]
-struct Database {
-	inner: HashMap<String, String>,
-}
+fn main() -> Result<(), std::io::Error> {
+    // Проверка открытия файла kv.db
+    let result = File::open("kv.db");
 
-impl Database {
-	// add code here
-	fn new() -> Result<Database, std::io::Error> {
-		// TODO: проверить наличие ключа в БД
-		let mut inner = HashMap::new();
-		
-		// let contents = std::fs::read_to_string("kv.bd")?
-		let contents = match std::fs::read_to_string("kv.bd") {
-			Ok(c) => c,
-			Err(error) => return Err(error),
-		};
+    match result {
+        Ok(_) => println!("File is opened"),
+        Err(_) => {
+            println!("[** ERROR **] -- The file is unavailable or missing");
+            // Создание файла kv.db
+            File::create("kv.db")?;
+        }
+    }
 
-		for line in contents.lines() {
-			let chunks: Vec<&str> = line.split('\t').collect();
+    print!("Введите параметр: ");
+    io::stdout().flush().unwrap();
 
-			if chunks.len() != 2 {
-				todo!("Return Error!");
-			}
+    let mut input_str: String = String::new();
 
-			let key = chunks[0];
-			let value = chunks[1];
+    io::stdin()
+        .read_line(&mut input_str)
+        .expect("[** ERROR **] -- Incorrect input");
 
-			inner.insert(key.to_owned(), value.to_owned());
-		}
+    match input_str.to_lowercase().trim() {
+        "create" => println!("Ok -- create"),
+        "read" => println!("Ok -- read"),
+        "update" => println!("Ok -- update"),
+        "delete" => println!("Ok -- delete"),
+        _ => println!("[** ERROR **] -- The pattern doesn't match")
+    }
 
-		Ok(Database {
-			inner: inner
-		})
-	}
-}
+    let today: LocalDate = LocalDate::today();
+    println!("LocalDate: {:?}", today);
 
-fn main() {
-	// Скипуем первый аргумент
-	let mut args = std::env::args().skip(1);
-
-	let key = args.next().unwrap();
-	let value = args.next().unwrap();
-
-	let _db = Database::new();
-
-	// Создаем формат записи в ДБ
-	let contents = format!("{}\t{}\n", key, value);
-	std::fs::write("kv.db", contents).unwrap();
-
-	println!("Key: {}, Value: {}.", key, value);
+    Ok(())
 }
