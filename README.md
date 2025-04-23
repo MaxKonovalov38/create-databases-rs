@@ -1,15 +1,20 @@
 # KVstore
+
 Пример реализации крошечной ключ-значение базы данных.
 
-EXAMPLE:
-```bash
+## Выполнение
+
+```shell
 	cargo run -- <parametr> [key] [value]
 ```
-PARAMETR:
-* select
-* insert
+
+## Параметры
+
+* create
+* read
 * update
 * delete
 
-TODO:
+## TODO:
+
 - Реализовать логику параметров.
