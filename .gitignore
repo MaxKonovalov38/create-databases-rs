@@ -45,4 +45,5 @@ Cargo.lock
 *.pdb
 
 ### User ###
+file.log
 kv.db
