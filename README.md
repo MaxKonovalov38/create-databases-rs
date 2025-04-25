@@ -5,7 +5,7 @@
 ## Выполнение
 
 ```shell
-	cargo run -- <parametr> [key] [value]
+cargo run -- <parametr> [key] [value]
 ```
 
 ## Параметры
