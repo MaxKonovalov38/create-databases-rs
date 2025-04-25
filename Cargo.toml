@@ -1,9 +1,10 @@
 [package]
-name = "kvstore"
-version = "0.1.0"
-authors = ["MaxKonovalov38 <max.kon.38r@gmail.com>"]
-edition = "2018"
+name = "kvStore"
+description = "An example of a key-value database implementation"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+authors = ["MaxKonovalov38 <max.kon.38r@gmail.com>"]
+
+version = "0.1.0"
+edition = "2018"
 
 [dependencies]
