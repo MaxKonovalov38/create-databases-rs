@@ -1,3 +1,14 @@
+### kvStore ###
+kvStore/target/
+kvStore/Cargo.lock
+kvStore/file.log
+kvStore/kv.db
+kvStore/TASK.md
+
+### sqlite-rs
+sqlite-rs/target/
+sqlite-rs/Cargo.lock
+
 ### Git ###
 # Created by git for backups. To disable backups in Git:
 # $ git config --global mergetool.keepBackup false
@@ -43,7 +54,3 @@ Cargo.lock
 
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
-
-### User ###
-file.log
-kv.db
